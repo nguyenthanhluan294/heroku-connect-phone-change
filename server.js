@@ -41,6 +41,12 @@ app.post('/update', function(req, res) {
     });
 });
 
+app.get('/contact', function(req, res) {
+    client.query('SELECT * FROM ' + salesforce.contact, function(error, data) {
+      res.json(data.rows);
+    });
+  });
+
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
